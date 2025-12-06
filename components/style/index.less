@@ -1,0 +1,176 @@
+/**
+ * 组件库全局样式入口
+ * @author: ZhangHF adays@foxmail.com
+ * @description: 定义组件库的全局样式，包括重置样式、基础样式和主题变量
+ * @since: 1.0.0
+ */
+
+// 导入样式变量
+@import './variables.less';
+// 导入样式混合
+@import './mixin.less';
+// 导入重置样式
+@import './reset.less';
+
+/**
+ * 全局基础样式
+ */
+body {
+	font-family: @font-family;
+	font-size: @font-size-base;
+	line-height: 1.5;
+	color: @color-text-primary;
+	background-color: @background-color-light;
+}
+
+/**
+ * 通用样式类
+ */
+.prd-ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.prd-ellipsis-2 {
+	display: -webkit-box;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+
+.prd-ellipsis-3 {
+	display: -webkit-box;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+}
+
+.prd-clearfix::after {
+	content: '';
+	display: table;
+	clear: both;
+}
+
+.prd-center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.prd-flex {
+	display: flex;
+}
+
+.prd-flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.prd-flex-between {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.prd-flex-column {
+	display: flex;
+	flex-direction: column;
+}
+
+.prd-flex-wrap {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.prd-hidden {
+	display: none !important;
+}
+
+.prd-visible {
+	display: block !important;
+}
+
+.prd-invisible {
+	visibility: hidden;
+}
+
+.prd-text-center {
+	text-align: center;
+}
+
+.prd-text-left {
+	text-align: left;
+}
+
+.prd-text-right {
+	text-align: right;
+}
+
+.prd-text-primary {
+	color: @color-primary;
+}
+
+.prd-text-success {
+	color: @color-success;
+}
+
+.prd-text-warning {
+	color: @color-warning;
+}
+
+.prd-text-danger {
+	color: @color-danger;
+}
+
+.prd-text-info {
+	color: @color-info;
+}
+
+.prd-bg-primary {
+	background-color: @color-primary;
+}
+
+.prd-bg-success {
+	background-color: @color-success;
+}
+
+.prd-bg-warning {
+	background-color: @color-warning;
+}
+
+.prd-bg-danger {
+	background-color: @color-danger;
+}
+
+.prd-bg-info {
+	background-color: @color-info;
+}
+
+.prd-bg-white {
+	background-color: @color-white;
+}
+
+.prd-bg-gray {
+	background-color: @background-color;
+}
+
+.prd-border {
+	border: 1px solid @border-color;
+}
+
+.prd-border-radius {
+	border-radius: @border-radius-base;
+}
+
+.prd-box-shadow {
+	box-shadow: @shadow-base;
+}
+
+.prd-transition {
+	transition: all @transition-duration @transition-timing-function;
+}

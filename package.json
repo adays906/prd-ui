@@ -1,0 +1,71 @@
+{
+  "name": "prd-ui",
+  "version": "1.0.0",
+  "description": "基于Vue 3.5 + TypeScript的UI组件库",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "lib/index.d.ts",
+  "typings": "lib/index.d.ts",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "build:lib": "vue-tsc && vite build --mode lib",
+    "build:es": "vue-tsc && vite build --mode es",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "typecheck": "vue-tsc --noEmit",
+    "test": "jest"
+  },
+  "dependencies": {
+    "vue": "^3.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@vitejs/plugin-vue": "^4.5.0",
+    "@vue/eslint-config-typescript": "^11.0.0",
+    "@vue/test-utils": "^2.4.0",
+    "eslint": "^8.50.0",
+    "eslint-plugin-vue": "^9.17.0",
+    "jest": "^29.7.0",
+    "less": "^4.2.0",
+    "typescript": "^5.2.0",
+    "vite": "^4.5.0",
+    "vue-tsc": "^1.8.0"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.6.0",
+  "files": [
+    "lib",
+    "es",
+    "components",
+    "style",
+    "hooks",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "prd-ui",
+    "vue3",
+    "typescript",
+    "ui-library",
+    "components"
+  ],
+  "author": {
+    "name": "ZhangHF",
+    "email": "adays@foxmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZhangHF/prd-ui.git"
+  },
+  "homepage": "https://github.com/ZhangHF/prd-ui#readme",
+  "bugs": {
+    "url": "https://github.com/ZhangHF/prd-ui/issues"
+  },
+  "license": "MIT"
+}

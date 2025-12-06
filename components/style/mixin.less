@@ -1,0 +1,281 @@
+/**
+ * 样式混合文件
+ * @author: ZhangHF adays@foxmail.com
+ * @description: 定义通用样式混合，方便在各个组件中复用
+ * @since: 1.0.0
+ */
+
+// 导入变量
+@import './variables.less';
+
+/**
+ * 清除浮动
+ */
+.clearfix() {
+	&::after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+}
+
+/**
+ * 居中定位
+ */
+.center() {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/**
+ * 垂直居中
+ */
+.vertical-center() {
+	display: flex;
+	align-items: center;
+}
+
+/**
+ * 水平居中
+ */
+.horizontal-center() {
+	display: flex;
+	justify-content: center;
+}
+
+/**
+ * 居中对齐
+ */
+.center-align() {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/**
+ * 弹性布局
+ * @param {string} justify - justify-content值
+ * @param {string} align - align-items值
+ */
+.flex(@justify: flex-start, @align: stretch) {
+	display: flex;
+	justify-content: @justify;
+	align-items: @align;
+}
+
+/**
+ * 弹性布局换行
+ */
+.flex-wrap() {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+/**
+ * 弹性布局子项
+ * @param {number} grow - flex-grow值
+ * @param {number} shrink - flex-shrink值
+ * @param {string} basis - flex-basis值
+ */
+.flex-item(@grow: 0, @shrink: 1, @basis: auto) {
+	flex: @grow @shrink @basis;
+}
+
+/**
+ * 边框样式
+ * @param {string} color - 边框颜色
+ * @param {string} width - 边框宽度
+ * @param {string} style - 边框样式
+ */
+.border(@color: @border-color, @width: 1px, @style: solid) {
+	border: @width @style @color;
+}
+
+/**
+ * 上边框
+ * @param {string} color - 边框颜色
+ * @param {string} width - 边框宽度
+ * @param {string} style - 边框样式
+ */
+.border-top(@color: @border-color, @width: 1px, @style: solid) {
+	border-top: @width @style @color;
+}
+
+/**
+ * 右边框
+ * @param {string} color - 边框颜色
+ * @param {string} width - 边框宽度
+ * @param {string} style - 边框样式
+ */
+.border-right(@color: @border-color, @width: 1px, @style: solid) {
+	border-right: @width @style @color;
+}
+
+/**
+ * 下边框
+ * @param {string} color - 边框颜色
+ * @param {string} width - 边框宽度
+ * @param {string} style - 边框样式
+ */
+.border-bottom(@color: @border-color, @width: 1px, @style: solid) {
+	border-bottom: @width @style @color;
+}
+
+/**
+ * 左边框
+ * @param {string} color - 边框颜色
+ * @param {string} width - 边框宽度
+ * @param {string} style - 边框样式
+ */
+.border-left(@color: @border-color, @width: 1px, @style: solid) {
+	border-left: @width @style @color;
+}
+
+/**
+ * 圆角
+ * @param {string} radius - 圆角半径
+ */
+.border-radius(@radius: @border-radius-base) {
+	border-radius: @radius;
+}
+
+/**
+ * 阴影
+ * @param {string} shadow - 阴影值
+ */
+.box-shadow(@shadow: @shadow-base) {
+	box-shadow: @shadow;
+}
+
+/**
+ * 过渡动画
+ * @param {string} property - 过渡属性
+ * @param {string} duration - 过渡时间
+ * @param {string} timing - 过渡函数
+ * @param {string} delay - 过渡延迟
+ */
+.transition(@property: all, @duration: @transition-duration, @timing: @transition-timing-function, @delay: 0s) {
+	transition: @property @duration @timing @delay;
+}
+
+/**
+ * 变换
+ * @param {string} transform - 变换值
+ */
+.transform(@transform: none) {
+	transform: @transform;
+}
+
+/**
+ * 旋转
+ * @param {number} deg - 旋转角度
+ */
+.rotate(@deg: 0deg) {
+	transform: rotate(@deg);
+}
+
+/**
+ * 缩放
+ * @param {number} scale - 缩放比例
+ */
+.scale(@scale: 1) {
+	transform: scale(@scale);
+}
+
+/**
+ * 位移
+ * @param {string} x - X轴位移
+ * @param {string} y - Y轴位移
+ */
+.translate(@x: 0, @y: 0) {
+	transform: translate(@x, @y);
+}
+
+/**
+ * 动画
+ * @param {string} name - 动画名称
+ * @param {string} duration - 动画时间
+ * @param {string} timing - 动画函数
+ * @param {string} delay - 动画延迟
+ * @param {string} iteration - 动画次数
+ * @param {string} direction - 动画方向
+ * @param {string} fill-mode - 动画填充模式
+ */
+.animation(@name: none, @duration: @animation-duration-spin, @timing: linear, @delay: 0s, @iteration: infinite, @direction: normal, @fill-mode: none) {
+	animation: @name @duration @timing @delay @iteration @direction @fill-mode;
+}
+
+/**
+ * 隐藏文本
+ */
+.text-hide() {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/**
+ * 多行文本隐藏
+ * @param {number} lines - 显示行数
+ */
+.text-hide-multiline(@lines: 2) {
+	display: -webkit-box;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: @lines;
+	-webkit-box-orient: vertical;
+}
+
+/**
+ * 禁止选择文本
+ */
+.no-select() {
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+
+/**
+ * 滚动条样式
+ */
+.scrollbar() {
+	&::-webkit-scrollbar {
+		width: 6px;
+		height: 6px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: @background-color-light;
+		border-radius: 3px;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: @border-color;
+		border-radius: 3px;
+
+		&:hover {
+			background: @border-color-dark;
+		}
+	}
+}
+
+/**
+ * 禁用状态
+ */
+.disabled() {
+	cursor: not-allowed;
+	opacity: @opacity-disabled;
+	pointer-events: none;
+}
+
+/**
+ * 加载状态
+ */
+.loading() {
+	cursor: not-allowed;
+	opacity: @opacity-disabled;
+	pointer-events: none;
+}

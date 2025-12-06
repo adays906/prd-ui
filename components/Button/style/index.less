@@ -1,0 +1,292 @@
+/**
+ * Button组件样式
+ * @author: ZhangHF adays@foxmail.com
+ * @description: Button组件的样式定义，支持多种类型、尺寸和状态
+ * @since: 1.0.0
+ */
+
+// 导入全局样式变量
+@import '../../style/variables.less';
+
+// 按钮基础样式
+.prd-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	font-family: @font-family;
+	font-weight: @font-weight-medium;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	transition: all @transition-duration;
+	border: 1px solid transparent;
+	outline: none;
+	user-select: none;
+	white-space: nowrap;
+
+	// 禁用状态
+	&--disabled {
+		cursor: not-allowed;
+		opacity: @opacity-disabled;
+	}
+
+	// 加载状态
+	&--loading {
+		cursor: not-allowed;
+
+		.prd-button__loading {
+			display: inline-block;
+			animation: spin @animation-duration-spin linear infinite;
+		}
+	}
+
+	// 圆角按钮
+	&--round {
+		border-radius: @border-radius-round;
+	}
+
+	// 圆形按钮
+	&--circle {
+		border-radius: 50%;
+		padding: 0;
+		width: @button-height;
+		height: @button-height;
+	}
+
+	// 链接按钮
+	&--link {
+		background: transparent;
+		border-color: transparent;
+		box-shadow: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	// 图标位置
+	&--icon-left {
+		.prd-button__icon {
+			margin-right: @margin-xs;
+		}
+	}
+
+	&--icon-right {
+		.prd-button__icon {
+			margin-left: @margin-xs;
+		}
+	}
+
+	// 图标样式
+	&__icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-size: @font-size-base;
+	}
+
+	// 加载图标样式
+	&__loading {
+		display: none;
+		align-items: center;
+		justify-content: center;
+		font-size: @font-size-base;
+		color: currentColor;
+	}
+
+	// 文本样式
+	&__text {
+		display: inline-block;
+	}
+
+	// 按钮尺寸
+	&--large {
+		font-size: @font-size-lg;
+		padding: @padding-lg @padding-xl;
+		height: @button-height-lg;
+		border-radius: @border-radius-base;
+	}
+
+	&--default {
+		font-size: @font-size-base;
+		padding: @padding-base @padding-lg;
+		height: @button-height;
+		border-radius: @border-radius-base;
+	}
+
+	&--small {
+		font-size: @font-size-sm;
+		padding: @padding-sm @padding-base;
+		height: @button-height-sm;
+		border-radius: @border-radius-base;
+	}
+
+	// 按钮类型
+	&--default {
+		background-color: @color-white;
+		border-color: @border-color;
+		color: @color-text-primary;
+
+		&:hover:not(&--disabled):not(&--loading) {
+			border-color: @color-primary;
+			color: @color-primary;
+		}
+
+		&:active:not(&--disabled):not(&--loading) {
+			border-color: @color-primary;
+			color: @color-primary;
+			background-color: @color-primary-light-1;
+		}
+	}
+
+	&--primary {
+		background-color: @color-primary;
+		border-color: @color-primary;
+		color: @color-white;
+
+		&:hover:not(&--disabled):not(&--loading) {
+			background-color: @color-primary-light-1;
+			border-color: @color-primary-light-1;
+		}
+
+		&:active:not(&--disabled):not(&--loading) {
+			background-color: @color-primary-dark-1;
+			border-color: @color-primary-dark-1;
+		}
+
+		&--link {
+			color: @color-primary;
+
+			&:hover:not(&--disabled):not(&--loading) {
+				color: @color-primary-light-1;
+			}
+
+			&:active:not(&--disabled):not(&--loading) {
+				color: @color-primary-dark-1;
+			}
+		}
+	}
+
+	&--success {
+		background-color: @color-success;
+		border-color: @color-success;
+		color: @color-white;
+
+		&:hover:not(&--disabled):not(&--loading) {
+			background-color: @color-success-light-1;
+			border-color: @color-success-light-1;
+		}
+
+		&:active:not(&--disabled):not(&--loading) {
+			background-color: @color-success-dark-1;
+			border-color: @color-success-dark-1;
+		}
+
+		&--link {
+			color: @color-success;
+
+			&:hover:not(&--disabled):not(&--loading) {
+				color: @color-success-light-1;
+			}
+
+			&:active:not(&--disabled):not(&--loading) {
+				color: @color-success-dark-1;
+			}
+		}
+	}
+
+	&--warning {
+		background-color: @color-warning;
+		border-color: @color-warning;
+		color: @color-white;
+
+		&:hover:not(&--disabled):not(&--loading) {
+			background-color: @color-warning-light-1;
+			border-color: @color-warning-light-1;
+		}
+
+		&:active:not(&--disabled):not(&--loading) {
+			background-color: @color-warning-dark-1;
+			border-color: @color-warning-dark-1;
+		}
+
+		&--link {
+			color: @color-warning;
+
+			&:hover:not(&--disabled):not(&--loading) {
+				color: @color-warning-light-1;
+			}
+
+			&:active:not(&--disabled):not(&--loading) {
+				color: @color-warning-dark-1;
+			}
+		}
+	}
+
+	&--danger {
+		background-color: @color-danger;
+		border-color: @color-danger;
+		color: @color-white;
+
+		&:hover:not(&--disabled):not(&--loading) {
+			background-color: @color-danger-light-1;
+			border-color: @color-danger-light-1;
+		}
+
+		&:active:not(&--disabled):not(&--loading) {
+			background-color: @color-danger-dark-1;
+			border-color: @color-danger-dark-1;
+		}
+
+		&--link {
+			color: @color-danger;
+
+			&:hover:not(&--disabled):not(&--loading) {
+				color: @color-danger-light-1;
+			}
+
+			&:active:not(&--disabled):not(&--loading) {
+				color: @color-danger-dark-1;
+			}
+		}
+	}
+
+	&--info {
+		background-color: @color-info;
+		border-color: @color-info;
+		color: @color-white;
+
+		&:hover:not(&--disabled):not(&--loading) {
+			background-color: @color-info-light-1;
+			border-color: @color-info-light-1;
+		}
+
+		&:active:not(&--disabled):not(&--loading) {
+			background-color: @color-info-dark-1;
+			border-color: @color-info-dark-1;
+		}
+
+		&--link {
+			color: @color-info;
+
+			&:hover:not(&--disabled):not(&--loading) {
+				color: @color-info-light-1;
+			}
+
+			&:active:not(&--disabled):not(&--loading) {
+				color: @color-info-dark-1;
+			}
+		}
+	}
+}
+
+// 旋转动画
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}

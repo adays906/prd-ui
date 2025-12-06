@@ -1,0 +1,335 @@
+/**
+ * 样式重置文件
+ * @author: ZhangHF adays@foxmail.com
+ * @description: 重置浏览器默认样式，确保组件在不同浏览器中表现一致
+ * @since: 1.0.0
+ */
+
+/* 重置所有元素的盒模型 */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* 重置基本元素样式 */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 新元素显示类型 */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+
+/* 重置列表样式 */
+ol,
+ul {
+	list-style: none;
+}
+
+/* 重置表格样式 */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* 重置引用样式 */
+blockquote,
+q {
+	quotes: none;
+}
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+	content: '';
+	content: none;
+}
+
+/* 重置 a 标签样式 */
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+/* 重置按钮样式 */
+button {
+	margin: 0;
+	padding: 0;
+	border: none;
+	background: transparent;
+	font: inherit;
+	color: inherit;
+	cursor: pointer;
+}
+
+/* 重置输入框样式 */
+input,
+textarea,
+select {
+	margin: 0;
+	padding: 0;
+	border: none;
+	background: transparent;
+	font: inherit;
+	color: inherit;
+}
+
+/* 重置图片样式 */
+img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: middle;
+}
+
+/* 重置 hr 样式 */
+hr {
+	margin: 0;
+	padding: 0;
+	border: none;
+	height: 1px;
+	background-color: @border-color;
+}
+
+/* 重置表单元素焦点样式 */
+:focus {
+	outline: none;
+}
+
+/* 重置标题样式 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: @font-weight-bold;
+	line-height: 1.2;
+	color: @color-text-primary;
+}
+
+h1 {
+	font-size: @font-size-xl;
+}
+
+h2 {
+	font-size: @font-size-lg;
+}
+
+h3 {
+	font-size: @font-size-base;
+}
+
+h4 {
+	font-size: @font-size-sm;
+}
+
+h5 {
+	font-size: @font-size-sm;
+}
+
+h6 {
+	font-size: @font-size-sm;
+}
+
+/* 重置段落样式 */
+p {
+	margin-bottom: @margin-base;
+}
+
+/* 重置 strong 样式 */
+strong {
+	font-weight: @font-weight-bold;
+}
+
+/* 重置 em 样式 */
+em {
+	font-style: italic;
+}
+
+/* 重置代码样式 */
+code,
+pre {
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 0.9em;
+	background-color: @background-color;
+	border-radius: @border-radius-base;
+}
+
+code {
+	padding: @padding-xs @padding-sm;
+}
+
+pre {
+	padding: @padding-base;
+	overflow-x: auto;
+}
+
+pre code {
+	padding: 0;
+	background-color: transparent;
+	border-radius: 0;
+}
+
+/* 重置表格单元格样式 */
+td,
+th {
+	padding: @padding-sm @padding-base;
+	border: 1px solid @border-color;
+	text-align: left;
+}
+
+th {
+	font-weight: @font-weight-bold;
+	background-color: @background-color;
+}
+
+/* 重置选择文本样式 */
+::selection {
+	background-color: @color-primary;
+	color: @color-white;
+}
+
+::-moz-selection {
+	background-color: @color-primary;
+	color: @color-white;
+}
+
+/* 重置滚动条样式 */
+::-webkit-scrollbar {
+	width: 6px;
+	height: 6px;
+}
+
+::-webkit-scrollbar-track {
+	background: @background-color-light;
+}
+
+::-webkit-scrollbar-thumb {
+	background: @border-color;
+	border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: @border-color-dark;
+}
+
+/* 重置 Firefox 滚动条样式 */
+* {
+	scrollbar-width: thin;
+	scrollbar-color: @border-color @background-color-light;
+}
+
+/* 重置 Safari 输入框清除按钮样式 */
+::-webkit-search-cancel-button {
+	-webkit-appearance: none;
+}
+
+/* 重置 Chrome 数字输入框箭头样式 */
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* 重置 IE 数字输入框箭头样式 */
+input[type='number'] {
+	-moz-appearance: textfield;
+}
