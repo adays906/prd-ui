@@ -1,64 +1,165 @@
 <template>
-	<div class="app-container">
-		<h1>PrdUI 组件库测试</h1>
+  <div class="app-container">
+    <h1>PrdUI 组件库测试</h1>
 
-		<section class="section">
-			<h2>Button 组件测试</h2>
+    <section class="section">
+      <h2>Button 组件测试</h2>
 
-			<div class="button-group">
-				<h3>按钮类型</h3>
-				<prd-button type="default"> 默认按钮 </prd-button>
-				<prd-button type="primary"> 主要按钮 </prd-button>
-				<prd-button type="success"> 成功按钮 </prd-button>
-				<prd-button type="warning"> 警告按钮 </prd-button>
-				<prd-button type="danger"> 危险按钮 </prd-button>
-				<prd-button type="info"> 信息按钮 </prd-button>
-			</div>
+      <div class="button-group">
+        <h3>按钮类型</h3>
+        <prd-button type="default">
+          默认按钮
+        </prd-button>
+        <prd-button type="primary">
+          主要按钮
+        </prd-button>
+        <prd-button type="success">
+          成功按钮
+        </prd-button>
+        <prd-button type="warning">
+          警告按钮
+        </prd-button>
+        <prd-button type="danger">
+          危险按钮
+        </prd-button>
+        <prd-button type="info">
+          信息按钮
+        </prd-button>
+      </div>
 
-			<div class="button-group">
-				<h3>按钮尺寸</h3>
-				<prd-button type="primary" size="large"> 大按钮 </prd-button>
-				<prd-button type="primary" size="default"> 默认尺寸 </prd-button>
-				<prd-button type="primary" size="small"> 小按钮 </prd-button>
-			</div>
+      <div class="button-group">
+        <h3>按钮尺寸</h3>
+        <prd-button
+          type="primary"
+          size="large"
+        >
+          大按钮
+        </prd-button>
+        <prd-button
+          type="primary"
+          size="default"
+        >
+          默认尺寸
+        </prd-button>
+        <prd-button
+          type="primary"
+          size="small"
+        >
+          小按钮
+        </prd-button>
+      </div>
 
-			<div class="button-group">
-				<h3>按钮状态</h3>
-				<prd-button type="primary" disabled> 禁用按钮 </prd-button>
-				<prd-button type="primary" loading> 加载按钮 </prd-button>
-			</div>
+      <div class="button-group">
+        <h3>按钮状态</h3>
+        <prd-button
+          type="primary"
+          disabled
+        >
+          禁用按钮
+        </prd-button>
+        <prd-button
+          type="primary"
+          loading
+        >
+          加载按钮
+        </prd-button>
+      </div>
 
-			<div class="button-group">
-				<h3>按钮形状</h3>
-				<prd-button type="primary" round> 圆角按钮 </prd-button>
-				<prd-button type="primary" circle text="+" size="small" />
-				<prd-button type="primary" circle text="-" />
-				<prd-button type="primary" circle text="✓" size="large" />
-			</div>
+      <div class="button-group">
+        <h3>按钮形状</h3>
+        <prd-button
+          type="primary"
+          round
+        >
+          圆角按钮
+        </prd-button>
+        <prd-button
+          type="primary"
+          circle
+          text="+"
+          size="small"
+        />
+        <prd-button
+          type="primary"
+          circle
+          text="-"
+        />
+        <prd-button
+          type="primary"
+          circle
+          text="✓"
+          size="large"
+        />
+      </div>
 
-			<div class="button-group">
-				<h3>链接按钮</h3>
-				<prd-button type="primary" link> 主要链接 </prd-button>
-				<prd-button type="success" link> 成功链接 </prd-button>
-				<prd-button type="warning" link> 警告链接 </prd-button>
-				<prd-button type="danger" link> 危险链接 </prd-button>
-				<prd-button type="info" link> 信息链接 </prd-button>
-			</div>
+      <div class="button-group">
+        <h3>链接按钮</h3>
+        <prd-button
+          type="primary"
+          link
+        >
+          主要链接
+        </prd-button>
+        <prd-button
+          type="success"
+          link
+        >
+          成功链接
+        </prd-button>
+        <prd-button
+          type="warning"
+          link
+        >
+          警告链接
+        </prd-button>
+        <prd-button
+          type="danger"
+          link
+        >
+          危险链接
+        </prd-button>
+        <prd-button
+          type="info"
+          link
+        >
+          信息链接
+        </prd-button>
+      </div>
 
-			<div class="button-group">
-				<h3>图标按钮</h3>
-				<prd-button type="primary" icon="🔍"> 搜索 </prd-button>
-				<prd-button type="primary" icon="📧" icon-position="right"> 发送 </prd-button>
-				<prd-button type="primary" circle icon="✨" />
-			</div>
+      <div class="button-group">
+        <h3>图标按钮</h3>
+        <prd-button
+          type="primary"
+          icon="🔍"
+        >
+          搜索
+        </prd-button>
+        <prd-button
+          type="primary"
+          icon="📧"
+          icon-position="right"
+        >
+          发送
+        </prd-button>
+        <prd-button
+          type="primary"
+          circle
+          icon="✨"
+        />
+      </div>
 
-			<div class="button-group">
-				<h3>事件处理</h3>
-				<prd-button type="primary" @click="handleClick"> 点击我 </prd-button>
-				<span class="message">{{ message }}</span>
-			</div>
-		</section>
-	</div>
+      <div class="button-group">
+        <h3>事件处理</h3>
+        <prd-button
+          type="primary"
+          @click="handleClick"
+        >
+          点击我
+        </prd-button>
+        <span class="message">{{ message }}</span>
+      </div>
+    </section>
+  </div>
 </template>
 
 <script setup lang="ts">

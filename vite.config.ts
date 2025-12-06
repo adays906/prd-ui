@@ -25,6 +25,14 @@ export default defineConfig(({ mode }) => {
 				},
 			},
 		},
+		server: {
+			// 从环境变量读取端口，默认8022
+			port: Number(process.env.VITE_PORT) || 8022,
+			// 自动打开浏览器
+			open: true,
+			// 允许外部访问
+			host: true,
+		},
 	};
 
 	// 根据不同模式配置不同的构建选项
