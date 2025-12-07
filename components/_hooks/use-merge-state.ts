@@ -59,3 +59,6 @@ export function useMergeState<T>(
 
   return [mergedValue, setMergedState];
 }
+
+// 默认导出
+export default useMergeState;

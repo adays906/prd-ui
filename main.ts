@@ -1,6 +1,7 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import PrdUI from './components/index';
+import router from './router';
 import './components/style/index.less';
 
 // 环境变量使用示例
@@ -10,5 +11,6 @@ console.log('运行端口:', import.meta.env.VITE_PORT);
 
 const app = createApp(App);
 app.use(PrdUI);
+app.use(router);
 app.mount('#app');
 

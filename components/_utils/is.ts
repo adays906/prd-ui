@@ -94,3 +94,12 @@ export function isNil(value: any): value is null | undefined {
 export function isPromise(value: any): value is Promise<any> {
   return isObject(value) && isFunction(value.then) && isFunction(value.catch);
 }
+
+/**
+ * 判断是否为 Dayjs 对象
+ * @param {any} value - 要判断的值
+ * @returns {boolean} 是否为 Dayjs 对象
+ */
+export function isDayjs(value: any): boolean {
+  return isObject(value) && isFunction(value.isValid) && isFunction(value.format);
+}

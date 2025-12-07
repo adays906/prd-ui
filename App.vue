@@ -1,237 +1,101 @@
 <template>
-  <div class="app-container">
-    <h1>PrdUI 组件库测试</h1>
+	<div class="app-container">
+		<aside class="sidebar">
+			<div class="sidebar-header">
+				<h1>PrdUI 组件库</h1>
+			</div>
+			<nav class="sidebar-nav">
+				<ul>
+					<li v-for="route in routes" :key="route.path">
+						<router-link :to="route.path" class="nav-link">
+							{{ route.meta.title }}
+						</router-link>
+					</li>
+				</ul>
+			</nav>
+		</aside>
 
-    <section class="section">
-      <h2>Button 组件测试</h2>
-
-      <div class="button-group">
-        <h3>按钮类型</h3>
-        <prd-button type="default">
-          默认按钮
-        </prd-button>
-        <prd-button type="primary">
-          主要按钮
-        </prd-button>
-        <prd-button type="success">
-          成功按钮
-        </prd-button>
-        <prd-button type="warning">
-          警告按钮
-        </prd-button>
-        <prd-button type="danger">
-          危险按钮
-        </prd-button>
-        <prd-button type="info">
-          信息按钮
-        </prd-button>
-      </div>
-
-      <div class="button-group">
-        <h3>按钮尺寸</h3>
-        <prd-button
-          type="primary"
-          size="large"
-        >
-          大按钮
-        </prd-button>
-        <prd-button
-          type="primary"
-          size="default"
-        >
-          默认尺寸
-        </prd-button>
-        <prd-button
-          type="primary"
-          size="small"
-        >
-          小按钮
-        </prd-button>
-      </div>
-
-      <div class="button-group">
-        <h3>按钮状态</h3>
-        <prd-button
-          type="primary"
-          disabled
-        >
-          禁用按钮
-        </prd-button>
-        <prd-button
-          type="primary"
-          loading
-        >
-          加载按钮
-        </prd-button>
-      </div>
-
-      <div class="button-group">
-        <h3>按钮形状</h3>
-        <prd-button
-          type="primary"
-          shape="round"
-        >
-          圆角按钮
-        </prd-button>
-        <prd-button
-          type="primary"
-          shape="circle"
-          text="+"
-          size="small"
-        />
-        <prd-button
-          type="primary"
-          shape="circle"
-          text="-"
-        />
-        <prd-button
-          type="primary"
-          shape="circle"
-          text="✓"
-          size="large"
-        />
-      </div>
-
-      <div class="button-group">
-        <h3>链接按钮</h3>
-        <prd-button
-          type="primary"
-          href="#"
-        >
-          主要链接
-        </prd-button>
-        <prd-button
-          type="success"
-          href="#"
-        >
-          成功链接
-        </prd-button>
-        <prd-button
-          type="warning"
-          href="#"
-        >
-          警告链接
-        </prd-button>
-        <prd-button
-          type="danger"
-          href="#"
-        >
-          危险链接
-        </prd-button>
-        <prd-button
-          type="info"
-          href="#"
-        >
-          信息链接
-        </prd-button>
-      </div>
-
-      <div class="button-group">
-        <h3>图标按钮</h3>
-        <prd-button
-          type="primary"
-          icon="🔍"
-        >
-          搜索
-        </prd-button>
-        <prd-button
-          type="primary"
-          icon="📧"
-          icon-position="right"
-        >
-          发送
-        </prd-button>
-        <prd-button
-          type="primary"
-          circle
-          icon="✨"
-        />
-      </div>
-
-      <div class="button-group">
-        <h3>事件处理</h3>
-        <prd-button
-          type="primary"
-          @click="handleClick"
-        >
-          点击我
-        </prd-button>
-        <span class="message">{{ message }}</span>
-      </div>
-    </section>
-  </div>
+		<main class="main-content">
+			<router-view />
+		</main>
+	</div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
-const message = ref('');
-
-const handleClick = () => {
-	message.value = '按钮被点击了！';
-	setTimeout(() => {
-		message.value = '';
-	}, 2000);
-};
+const router = useRouter();
+const routes = router.getRoutes().filter((route) => route.path !== '/');
 </script>
 
 <style lang="less">
 .app-container {
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 20px;
+	display: flex;
+	min-height: 100vh;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+	background-color: #f5f5f5;
+}
 
-	h1 {
-		font-size: 28px;
-		font-weight: 600;
-		color: #262626;
-		margin-bottom: 30px;
-		text-align: center;
+.sidebar {
+	width: 240px;
+	background-color: #fff;
+	border-right: 1px solid #f0f0f0;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+	.sidebar-header {
+		padding: 20px;
+		border-bottom: 1px solid #f0f0f0;
+
+		h1 {
+			margin: 0;
+			font-size: 20px;
+			font-weight: 600;
+			color: #262626;
+		}
 	}
 
-	section {
+	.sidebar-nav {
+		padding: 12px 0;
+
+		ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+
+		.nav-link {
+			display: block;
+			padding: 12px 20px;
+			color: #595959;
+			text-decoration: none;
+			font-size: 14px;
+			transition: all 0.3s;
+			border-left: 3px solid transparent;
+
+			&:hover {
+				background-color: #f5f5f5;
+				color: #1890ff;
+			}
+
+			&.router-link-active {
+				background-color: #e6f7ff;
+				color: #1890ff;
+				border-left-color: #1890ff;
+			}
+		}
+	}
+}
+
+.main-content {
+	flex: 1;
+	padding: 24px;
+	overflow-y: auto;
+
+	> div {
 		background-color: #fff;
 		border-radius: 8px;
 		padding: 24px;
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-
-		h2 {
-			font-size: 20px;
-			font-weight: 600;
-			color: #262626;
-			margin-bottom: 20px;
-		}
-
-		h3 {
-			font-size: 16px;
-			font-weight: 500;
-			color: #595959;
-			margin-bottom: 12px;
-		}
-	}
-
-	.button-group {
-		margin-bottom: 24px;
-		padding-bottom: 24px;
-		border-bottom: 1px solid #f0f0f0;
-
-		&:last-child {
-			border-bottom: none;
-			margin-bottom: 0;
-			padding-bottom: 0;
-		}
-
-		> .prd-button {
-			margin-right: 12px;
-			margin-bottom: 12px;
-		}
-
-		.message {
-			margin-left: 12px;
-			color: #1890ff;
-			font-size: 14px;
-		}
 	}
 }
 </style>
