@@ -1,6 +1,10 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
+import dotenv from 'dotenv';
+
+// 加载环境变量
+dotenv.config();
 
 /**
  * Vite配置文件
@@ -27,7 +31,9 @@ export default defineConfig(({ mode }) => {
 		},
 		server: {
 			// 从环境变量读取端口，默认8022
-			port: Number(process.env.VITE_PORT) || 8022,
+			port: Number(process.env.VITE_PORT),
+			// 强制使用指定的端口
+			strictPort: true,
 			// 自动打开浏览器
 			open: true,
 			// 允许外部访问

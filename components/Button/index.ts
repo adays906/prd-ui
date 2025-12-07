@@ -11,11 +11,13 @@ import { setGlobalConfig, getComponentPrefix } from '../_utils/global-config';
 import Button from './button.vue';
 import type { ButtonProps, ButtonEmits } from './interface';
 
+// 设置组件名称
+Button.name = 'PrdButton';
+
 const PrdButton = Object.assign(Button, {
   install: (app: App, options?: ArcoOptions) => {
-    setGlobalConfig(app, options?.globalConfig);
     const componentPrefix = getComponentPrefix(options?.prefixCls);
-    app.component(componentPrefix + Button.name, Button);
+    app.component(componentPrefix + '-button', Button);
   },
 });
 

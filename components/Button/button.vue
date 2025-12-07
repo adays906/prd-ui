@@ -1,16 +1,8 @@
 <template>
 	<template v-if="href">
-		<a
-			:class="[
-				cls,
-				{ [`${prefixCls}-only-icon`]: $slots.icon && !($slots.default || text) },
-				{ [`${prefixCls}-icon-${iconPosition}`]: $slots.icon && ($slots.default || text) },
-			]"
-			:href="mergedDisabled || loading ? undefined : href"
-			@click="handleClick"
-		>
+		<a :class="cls" :href="mergedDisabled || loading ? undefined : href" @click="handleClick">
 			<!-- 加载状态图标 -->
-			<span v-if="loading || $slots.icon" :class="`${prefixCls}__icon`">
+			<span v-if="loading || slots.icon || icon" :class="`${prefixCls}__icon`">
 				<svg
 					v-if="loading"
 					width="16"
@@ -23,29 +15,20 @@
 						d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 0 0-94.3-139.9 437.71 437.71 0 0 0-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 864 150c37.3 47 60.3 104.1 60.3 163.7 0 19.9-16.1 36-36 36z"
 					/>
 				</svg>
-				<slot v-else name="icon" />
+				<slot v-else-if="slots.icon" name="icon" />
+				<span v-else-if="icon" class="${prefixCls}__icon-text">{{ icon }}</span>
 			</span>
 
 			<!-- 按钮文本 -->
-			<span v-if="text || $slots.default" :class="`${prefixCls}__text`">
+			<span v-if="text || slots.default" :class="`${prefixCls}__text`">
 				<slot>{{ text }}</slot>
 			</span>
 		</a>
 	</template>
 	<template v-else>
-		<button
-			:class="[
-				cls,
-				{ [`${prefixCls}-only-icon`]: $slots.icon && !($slots.default || text) },
-				{ [`${prefixCls}-icon-${iconPosition}`]: $slots.icon && ($slots.default || text) },
-			]"
-			:disabled="mergedDisabled"
-			:type="htmlType"
-			:autofocus="autofocus"
-			@click="handleClick"
-		>
+		<button :class="cls" :disabled="mergedDisabled" :type="htmlType" :autofocus="autofocus" @click="handleClick">
 			<!-- 加载状态图标 -->
-			<span v-if="loading || $slots.icon" :class="`${prefixCls}__icon`">
+			<span v-if="loading || slots.icon || icon" :class="`${prefixCls}__icon`">
 				<svg
 					v-if="loading"
 					width="16"
@@ -58,11 +41,12 @@
 						d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 0 0-94.3-139.9 437.71 437.71 0 0 0-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 864 150c37.3 47 60.3 104.1 60.3 163.7 0 19.9-16.1 36-36 36z"
 					/>
 				</svg>
-				<slot v-else name="icon" />
+				<slot v-else-if="slots.icon" name="icon" />
+				<span v-else-if="icon" class="${prefixCls}__icon-text">{{ icon }}</span>
 			</span>
 
 			<!-- 按钮文本 -->
-			<span v-if="text || $slots.default" :class="`${prefixCls}__text`">
+			<span v-if="text || slots.default" :class="`${prefixCls}__text`">
 				<slot>{{ text }}</slot>
 			</span>
 		</button>
@@ -71,7 +55,7 @@
 
 <script setup lang="ts">
 import type { ButtonProps, ButtonEmits } from './interface';
-import { computed } from 'vue';
+import { computed, useSlots } from 'vue';
 import { getPrefixCls } from '../_utils/global-config';
 import { isString } from '../_utils/is';
 import { useSize } from '../_hooks/use-size';
@@ -90,14 +74,19 @@ const props = withDefaults(defineProps<ButtonProps>(), {
 	disabled: false,
 	loading: false,
 	long: false,
+	circle: false,
 	htmlType: 'button',
 	autofocus: false,
 	iconPosition: 'left',
 	text: '',
+	icon: '',
 });
 
 // 定义组件事件
 const emit = defineEmits<ButtonEmits>();
+
+// 获取插槽
+const slots = useSlots();
 
 // 获取组件前缀
 const prefixCls = getPrefixCls('button');
@@ -113,12 +102,14 @@ const cls = computed(() => [
 	prefixCls,
 	`${prefixCls}--${props.type}`,
 	`${prefixCls}--${mergedSize.value}`,
-	props.shape && `${prefixCls}--shape-${props.shape}`,
+	(props.shape || (props.circle ? 'circle' : undefined)) && `${prefixCls}--shape-${props.shape || 'circle'}`,
 	{
 		[`${prefixCls}--disabled`]: mergedDisabled.value,
 		[`${prefixCls}--loading`]: props.loading,
 		[`${prefixCls}--long`]: props.long,
 		[`${prefixCls}--link`]: isString(props.href),
+		[`${prefixCls}-only-icon`]: (props.icon || slots.icon) && !(slots.default || props.text),
+		[`${prefixCls}-icon-${props.iconPosition}`]: (props.icon || slots.icon) && (slots.default || props.text),
 	},
 ]);
 

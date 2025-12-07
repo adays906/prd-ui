@@ -30,7 +30,13 @@ const PrdUI = {
     // 注册所有组件
     Object.keys(components).forEach((key) => {
       const component = components[key as keyof typeof components];
-      app.use(component, options);
+      // 调用组件的 install 方法
+      if (component.install) {
+        component.install(app, options);
+      } else {
+        // 如果没有 install 方法，则直接注册组件
+        app.component(component.name || key, component);
+      }
     });
   },
 };

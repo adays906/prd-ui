@@ -23,6 +23,11 @@ export interface ButtonProps {
    */
   shape?: BorderShape;
   /**
+   * 是否为圆形按钮，等同于 shape="circle"
+   * @default false
+   */
+  circle?: boolean;
+  /**
    * 按钮状态
    * @default 'normal'
    */
@@ -70,6 +75,10 @@ export interface ButtonProps {
    * 按钮文本
    */
   text?: string;
+  /**
+   * 图标
+   */
+  icon?: string;
 }
 
 /**

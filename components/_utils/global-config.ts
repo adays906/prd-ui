@@ -16,7 +16,7 @@ const DEFAULT_CONFIG: GlobalConfig = {
 };
 
 // 注入键
-const GLOBAL_CONFIG_KEY: InjectionKey<GlobalConfig> = Symbol('global-config');
+export const GLOBAL_CONFIG_KEY: InjectionKey<GlobalConfig> = Symbol('global-config');
 
 /**
  * 设置全局配置
