@@ -8,8 +8,12 @@
 // 导入全局样式变量
 @import '../../style/variables.less';
 
+// 组件前缀
+@prefix: prd;
+@component-prefix: ~'@{prefix}-button';
+
 // 按钮基础样式
-.prd-button {
+.@{component-prefix} {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
@@ -35,19 +39,22 @@
 	&--loading {
 		cursor: not-allowed;
 
-		.prd-button__loading {
+		.@{component-prefix}__loading {
 			display: inline-block;
 			animation: spin @animation-duration-spin linear infinite;
 		}
 	}
 
-	// 圆角按钮
-	&--round {
+	// 按钮形状
+	&--shape-square {
+		border-radius: @border-radius-base;
+	}
+
+	&--shape-round {
 		border-radius: @border-radius-round;
 	}
 
-	// 圆形按钮
-	&--circle {
+	&--shape-circle {
 		border-radius: 50%;
 		padding: 0;
 		width: @button-height;
@@ -65,15 +72,20 @@
 		}
 	}
 
+	// 长按钮
+	&--long {
+		width: 100%;
+	}
+
 	// 图标位置
 	&--icon-left {
-		.prd-button__icon {
+		.@{component-prefix}__icon {
 			margin-right: @margin-xs;
 		}
 	}
 
 	&--icon-right {
-		.prd-button__icon {
+		.@{component-prefix}__icon {
 			margin-left: @margin-xs;
 		}
 	}
@@ -105,21 +117,18 @@
 		font-size: @font-size-lg;
 		padding: @padding-lg @padding-xl;
 		height: @button-height-lg;
-		border-radius: @border-radius-base;
 	}
 
-	&--default {
+	&--medium {
 		font-size: @font-size-base;
 		padding: @padding-base @padding-lg;
 		height: @button-height;
-		border-radius: @border-radius-base;
 	}
 
 	&--small {
 		font-size: @font-size-sm;
 		padding: @padding-sm @padding-base;
 		height: @button-height-sm;
-		border-radius: @border-radius-base;
 	}
 
 	// 按钮类型

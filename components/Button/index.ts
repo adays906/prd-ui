@@ -5,13 +5,22 @@
  * @since: 1.0.0
  */
 
-// 导入Button组件
+import type { App } from 'vue';
+import type { ArcoOptions } from '../_utils/types';
+import { setGlobalConfig, getComponentPrefix } from '../_utils/global-config';
 import Button from './button.vue';
-// 导入Button类型定义
 import type { ButtonProps, ButtonEmits } from './interface';
 
-// 导出Button组件和类型
-export { Button, ButtonProps, ButtonEmits };
+const PrdButton = Object.assign(Button, {
+  install: (app: App, options?: ArcoOptions) => {
+    setGlobalConfig(app, options?.globalConfig);
+    const componentPrefix = getComponentPrefix(options?.prefixCls);
+    app.component(componentPrefix + Button.name, Button);
+  },
+});
 
-// 默认导出组件
-export default Button;
+export type { ButtonProps, ButtonEmits };
+
+export { PrdButton };
+
+export default PrdButton;

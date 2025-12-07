@@ -69,24 +69,24 @@
         <h3>按钮形状</h3>
         <prd-button
           type="primary"
-          round
+          shape="round"
         >
           圆角按钮
         </prd-button>
         <prd-button
           type="primary"
-          circle
+          shape="circle"
           text="+"
           size="small"
         />
         <prd-button
           type="primary"
-          circle
+          shape="circle"
           text="-"
         />
         <prd-button
           type="primary"
-          circle
+          shape="circle"
           text="✓"
           size="large"
         />
@@ -96,31 +96,31 @@
         <h3>链接按钮</h3>
         <prd-button
           type="primary"
-          link
+          href="#"
         >
           主要链接
         </prd-button>
         <prd-button
           type="success"
-          link
+          href="#"
         >
           成功链接
         </prd-button>
         <prd-button
           type="warning"
-          link
+          href="#"
         >
           警告链接
         </prd-button>
         <prd-button
           type="danger"
-          link
+          href="#"
         >
           危险链接
         </prd-button>
         <prd-button
           type="info"
-          link
+          href="#"
         >
           信息链接
         </prd-button>

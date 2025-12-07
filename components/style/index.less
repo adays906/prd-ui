@@ -12,6 +12,9 @@
 // 导入重置样式
 @import './reset.less';
 
+// 组件前缀
+@prefix: prd;
+
 /**
  * 全局基础样式
  */
@@ -26,13 +29,13 @@ body {
 /**
  * 通用样式类
  */
-.prd-ellipsis {
+.@{prefix}-ellipsis {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }
 
-.prd-ellipsis-2 {
+.@{prefix}-ellipsis-2 {
 	display: -webkit-box;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -40,7 +43,7 @@ body {
 	-webkit-box-orient: vertical;
 }
 
-.prd-ellipsis-3 {
+.@{prefix}-ellipsis-3 {
 	display: -webkit-box;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -48,129 +51,129 @@ body {
 	-webkit-box-orient: vertical;
 }
 
-.prd-clearfix::after {
+.@{prefix}-clearfix::after {
 	content: '';
 	display: table;
 	clear: both;
 }
 
-.prd-center {
+.@{prefix}-center {
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
 
-.prd-flex {
+.@{prefix}-flex {
 	display: flex;
 }
 
-.prd-flex-center {
+.@{prefix}-flex-center {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
-.prd-flex-between {
+.@{prefix}-flex-between {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 }
 
-.prd-flex-column {
+.@{prefix}-flex-column {
 	display: flex;
 	flex-direction: column;
 }
 
-.prd-flex-wrap {
+.@{prefix}-flex-wrap {
 	display: flex;
 	flex-wrap: wrap;
 }
 
-.prd-hidden {
+.@{prefix}-hidden {
 	display: none !important;
 }
 
-.prd-visible {
+.@{prefix}-visible {
 	display: block !important;
 }
 
-.prd-invisible {
+.@{prefix}-invisible {
 	visibility: hidden;
 }
 
-.prd-text-center {
+.@{prefix}-text-center {
 	text-align: center;
 }
 
-.prd-text-left {
+.@{prefix}-text-left {
 	text-align: left;
 }
 
-.prd-text-right {
+.@{prefix}-text-right {
 	text-align: right;
 }
 
-.prd-text-primary {
+.@{prefix}-text-primary {
 	color: @color-primary;
 }
 
-.prd-text-success {
+.@{prefix}-text-success {
 	color: @color-success;
 }
 
-.prd-text-warning {
+.@{prefix}-text-warning {
 	color: @color-warning;
 }
 
-.prd-text-danger {
+.@{prefix}-text-danger {
 	color: @color-danger;
 }
 
-.prd-text-info {
+.@{prefix}-text-info {
 	color: @color-info;
 }
 
-.prd-bg-primary {
+.@{prefix}-bg-primary {
 	background-color: @color-primary;
 }
 
-.prd-bg-success {
+.@{prefix}-bg-success {
 	background-color: @color-success;
 }
 
-.prd-bg-warning {
+.@{prefix}-bg-warning {
 	background-color: @color-warning;
 }
 
-.prd-bg-danger {
+.@{prefix}-bg-danger {
 	background-color: @color-danger;
 }
 
-.prd-bg-info {
+.@{prefix}-bg-info {
 	background-color: @color-info;
 }
 
-.prd-bg-white {
+.@{prefix}-bg-white {
 	background-color: @color-white;
 }
 
-.prd-bg-gray {
+.@{prefix}-bg-gray {
 	background-color: @background-color;
 }
 
-.prd-border {
+.@{prefix}-border {
 	border: 1px solid @border-color;
 }
 
-.prd-border-radius {
+.@{prefix}-border-radius {
 	border-radius: @border-radius-base;
 }
 
-.prd-box-shadow {
+.@{prefix}-box-shadow {
 	box-shadow: @shadow-base;
 }
 
-.prd-transition {
+.@{prefix}-transition {
 	transition: all @transition-duration @transition-timing-function;
 }

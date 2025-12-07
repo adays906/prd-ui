@@ -21,7 +21,7 @@ export default defineConfig(({ mode }) => {
 		css: {
 			preprocessorOptions: {
 				less: {
-					additionalData: `@import './components/style/mixin.less';`,
+					additionalData: `@import './components/style/variables.less'; @import './components/style/mixin.less';`,
 				},
 			},
 		},
